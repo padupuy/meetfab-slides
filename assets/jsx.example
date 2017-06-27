@@ -1,0 +1,21 @@
+/**
+* Définition
+*/
+import React, { Component } from "react";
+
+export default class NomDeMonComposant extends Component {
+  render() {
+    return (
+      <div className="container">
+        <h1>
+          Ceci est composant React
+        </h1>
+      </div>
+    );
+  }
+}
+
+/**
+* Utilisation
+*/
+<NomDeMonComposant />

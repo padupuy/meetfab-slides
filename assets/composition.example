@@ -1,0 +1,24 @@
+import React, { Component } from "react";
+
+import Header from "./Header";
+import Image from "./Image";
+import Menu from "./Menu";
+import Sidebar from "./Sidebar";
+import Content from "./Content";
+
+export default class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Header>
+          <Image source="http://adfab.com/logo.jpg" />
+          <Menu items={["Acueil", "Expertises", "Réalisations", "Contact"]} />
+        </Header>
+        <Sidebar />
+        <Content>
+          {this.props.children}
+        </Content>
+      </div>
+    );
+  }
+}

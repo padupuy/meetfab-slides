@@ -1,0 +1,28 @@
+import React, { Component } from "react";
+
+export default class NomDeMonComposant extends Component {
+  state = {
+    color: "black"
+  };
+  
+  render() {
+    return (
+      <div className="container" style={{ backgroundColor: this.state.color }}>
+        <h1>
+          Ceci est composant React
+        </h1>
+        <div>
+          <button
+            onClick={() => {
+              this.setState({
+                color: this.state.color === "yellow" ? "black" : "yellow"
+              });
+            }}
+          >
+            Changer la couleur d'arrière plan
+          </button>
+        </div>
+      </div>
+    );
+  }
+}
