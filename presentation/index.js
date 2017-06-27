@@ -48,7 +48,12 @@ const images = {
   nativescript: require("../assets/nativescript.png"),
   eric: require("../assets/eric.gif"),
   fiber: require("../assets/fiber.png"),
-  javascriptcore: require("../assets/javascriptcore.png")
+  javascriptcore: require("../assets/javascriptcore.png"),
+  ssr: require("../assets/ssr.png"),
+  flux: require("../assets/flux.png"),
+  redux: require("../assets/redux.png"),
+  reduxStructure: require("../assets/redux-structure.jpg"),
+  snap: require("../assets/snap.png")
 };
 
 preloader(images);
@@ -57,6 +62,7 @@ const theme = createTheme(
   {
     primary: "black",
     secondary: "yellow",
+    // secondary: "white",
     tertiary: "white"
   },
   {
@@ -227,11 +233,13 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Lifecycle</Heading>
+          <Text textColor="secondary">Creation</Text>
           <List>
             <ListItem>constructor()</ListItem>
             <ListItem>componentWillMount()</ListItem>
             <ListItem>render()</ListItem>
           </List>
+          <Text textColor="secondary">Mise à jour</Text>
           <List>
             <ListItem>componentDidMount()</ListItem>
             <ListItem>componentWillReceiveProps()</ListItem>
@@ -245,16 +253,22 @@ export default class Presentation extends React.Component {
         <Slide {...slideProps}>
           <img src={images.webpack} />
           <Text textColor="secondary">debugging webpack</Text>
+          <br />
           <Appear>
             <Text textColor="secondary">create-react-app</Text>
           </Appear>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Tests</Heading>
+          <br />
           <img src={images.tests} />
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Jest</Heading>
+          <img src={images.snap} width="765" height="484" />
+          <Link>
+            https://facebook.github.io/jest/docs/snapshot-testing.html
+          </Link>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Airbnb</Heading>
@@ -273,23 +287,26 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Flux</Heading>
-          <img
-            src="http://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png"
-            width="800"
-            height="242"
-          />
+          <img src={images.flux} width="800" height="242" />
           <Link>https://facebook.github.io/flux/docs/videos.html</Link>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Redux</Heading>
-          <img
-            src="https://raw.githubusercontent.com/reactjs/redux/master/logo/logo.png"
-            width="363"
-            height="319"
-          />
+          <img src={images.redux} width="363" height="319" />
           <Text textColor="secondary">
-            This architecture might seem like an overkill for a counter app, but the beauty of this pattern is how well it scales to large and complex apps
+            Dan Abramov - 2015
           </Text>
+          <List>
+            <ListItem>
+              Container d'état - inspiré de ELM
+            </ListItem>
+            <ListItem>
+              Un store unique / plusieurs reducers
+            </ListItem>
+          </List>
+        </Slide>
+        <Slide {...slideProps}>
+          <img src={images.reduxStructure} />
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Architecture d'un projet</Heading>
@@ -304,7 +321,7 @@ export default class Presentation extends React.Component {
             Functionnal Component / PureComponent
           </Text>
           <Text textColor="secondary">shouldComponentUpdate</Text>
-          <Text textColor="secondary">Redux saga / rx</Text>
+          <Text textColor="secondary">Redux saga / observable</Text>
           <Text textColor="secondary">Redux selectors</Text>
           <Text textColor="secondary">prettier / eslint</Text>
         </Slide>
@@ -312,6 +329,12 @@ export default class Presentation extends React.Component {
           <Heading {...headingProps}>React SSR</Heading>
           <Text textColor="secondary">SEO / Rapidité</Text>
           <Text textColor="secondary">Netflix / Paypal / M6</Text>
+        </Slide>
+        <Slide {...slideProps}>
+          <img src={images.ssr} />
+          <Link>
+            https://goralewicz.com/blog/javascript-seo-experiment/
+          </Link>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Next.js</Heading>
@@ -382,7 +405,7 @@ export default class Presentation extends React.Component {
           </Link>
           <br />
           <Link>
-            https://www.facebook.com/groups/react.native.community/permalink/1008204872648424/
+            https://twitter.com/ReactEurope/status/876546361583448066
           </Link>
         </Slide>
         <Slide {...slideProps}>
@@ -393,54 +416,82 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Concurrents</Heading>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <img src={images.nativescript} />
+            <img src={images.xamarin} height="136" />
+            <img src={images.weex} />
+          </div>
           <List>
             <ListItem>
-              Telerik / Google (Angular JS)
-              <img src={images.nativescript} />
+              NativeScript : Telerik / Google - Angular JS
             </ListItem>
             <ListItem>
-              Microsoft (c#)
-              <img src={images.xamarin} />
+              Xamarin : Microsoft - c#
             </ListItem>
             <ListItem>
-              Alibaba / Taobao (vue JS)
-              <img src={images.weex} />
-            </ListItem>
-            <ListItem>
-              <Text textColor="secondary">No more webview =&gt; UX = 😇</Text>
+              Weex : Alibaba / Taobao - Vue JS
             </ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
-          <Heading {...headingProps}>Pros</Heading>
+          <Heading {...headingProps}>Avantages</Heading>
           <List>
             <ListItem>
               Si vous maîtrisez déjà React, vous savez coder en React Native
             </ListItem>
-            <ListItem>
-              On peut faire du spécifique iOS / Android très simplement
-            </ListItem>
-            <ListItem>On peut debugger son code avec Chrome DevTools</ListItem>
-            <ListItem>UX</ListItem>
-            <ListItem>Performances</ListItem>
+            <Appear>
+              <ListItem>
+                On peut faire du spécifique iOS / Android très simplement
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                On peut debugger son code avec Chrome DevTools
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>UX</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Performances</ListItem>
+            </Appear>
           </List>
         </Slide>
         <Slide {...slideProps}>
-          <Heading {...headingProps}>Const</Heading>
+          <Heading {...headingProps}>Inconvénients</Heading>
           <List>
             <ListItem>
               Encore pas mal de bug (layout, overflow, zIndex) mais il y a une nouvelle release chaque mois, on guette à chaque fois la release note avec attention
             </ListItem>
-            <ListItem>
-              Gros débat sur la navigation mais des solutions performantes existent
-            </ListItem>
-            <ListItem>
-              Mise à jour délicate mais les devs ont toujours de supers idées https://github.com/ncuillery/rn-diff
-            </ListItem>
+            <Appear>
+              <ListItem>
+                Gros débat sur la navigation mais des solutions performantes existent
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                Mise à jour délicate mais les devs ont toujours de supers idées https://github.com/ncuillery/rn-diff
+              </ListItem>
+            </Appear>
           </List>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Tips</Heading>
+          <List>
+            <ListItem>Utiliser un mac</ListItem>
+            <ListItem>Utiliser des composants natifs</ListItem>
+            <ListItem>Tester plusieurs librairies</ListItem>
+            <ListItem>Temps développement ios ≠ android</ListItem>
+            <ListItem>Développer en même temps sous android et ios</ListItem>
+            <ListItem>Tester au fur et à mesure sur des vrais devices</ListItem>
+            <ListItem>Tester les perf avec des versions packagées</ListItem>
+          </List>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Démo</Heading>
