@@ -28,9 +28,9 @@ require("spectacle/lib/themes/default/index.css");
 require("./style.css");
 
 const images = {
+  logoAdfab: require("../assets/logo_adfab.png"),
   logo: require("../assets/logo.svg"),
   photo: require("../assets/now-coworking-crop.jpg"),
-  pessac: require("../assets/pessac-mere-patrie.jpg"),
   angular: require("../assets/angular.png"),
   backbone: require("../assets/backbone.png"),
   ember: require("../assets/ember.png"),
@@ -46,7 +46,9 @@ const images = {
   xamarin: require("../assets/xamarin.svg"),
   weex: require("../assets/weex.svg"),
   nativescript: require("../assets/nativescript.png"),
-  eric: require("../assets/eric.gif")
+  eric: require("../assets/eric.gif"),
+  fiber: require("../assets/fiber.png"),
+  javascriptcore: require("../assets/javascriptcore.png")
 };
 
 preloader(images);
@@ -63,6 +65,18 @@ const theme = createTheme(
   }
 );
 
+const slideProps = {
+  padding: 0,
+  transition: ["fade"],
+  bgColor: "primary"
+};
+
+const headingProps = {
+  size: 5,
+  caps: true,
+  textColor: "secondary"
+};
+
 export default class Presentation extends React.Component {
   state = {
     color: "black"
@@ -75,19 +89,21 @@ export default class Presentation extends React.Component {
         transitionDuration={500}
         theme={theme}
       >
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            Bienvenue <br />chez Adfab
+        <Slide {...slideProps}>
+          <img src={images.logoAdfab} />
+          <Heading {...headingProps}>
+            Bienvenue
+          </Heading>
+          <Heading {...headingProps}>
+            chez Adfab
           </Heading>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
+        <Slide {...slideProps}>
           <img src={images.photo} className="portrait" />
           <Text textColor="secondary">Pierre-Alexandre Dupuy</Text>
-          <Appear>
-            <Text textColor="secondary">@padupuy</Text>
-          </Appear>
+          <Text textColor="secondary">@padupuy</Text>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
+        <Slide {...slideProps}>
           <img src={images.logo} className="App-logo" alt="logo" />
           <List>
             <Appear>
@@ -100,7 +116,7 @@ export default class Presentation extends React.Component {
             </Appear>
             <Appear>
               <ListItem>
-                React Universel
+                React SSR
               </ListItem>
             </Appear>
             <Appear>
@@ -115,39 +131,42 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">React</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>React</Heading>
           <img src={images.logo} alt="logo" width="250" height="250" />
           <Appear>
             <Text textColor="secondary">Jordan Walke - Facebook - 2013</Text>
           </Appear>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
+        <Slide {...slideProps}>
           <img className="techno" src={images.angular} />
           <img className="techno" src={images.backbone} />
           <img className="techno" src={images.ember} />
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
+        <Slide {...slideProps}>
           <img width="610" height="458" src={images.technos} />
+          <br />
           <Link>
             https://medium.com/this-dot-labs/building-modern-web-applications-in-2017-791d2ef2e341
           </Link>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">Virtual DOM</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Virtual DOM</Heading>
           <img src={images.vdomInception} />
+          <br />
           <Link>
             http://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/
           </Link>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">Virtual DOM</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Virtual DOM</Heading>
           <img src={images.vdom} width="697" height="392" />
+          <br />
           <Link>
             https://www.infoq.com/presentations/react-reconciliation
           </Link>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
+        <Slide {...slideProps}>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/jsx.example")}
@@ -169,10 +188,8 @@ export default class Presentation extends React.Component {
             }
           ]}
         />
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={5} caps lineHeight={1} textColor="secondary">
-            props
-          </Heading>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>props</Heading>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/props.example")}
@@ -183,13 +200,12 @@ export default class Presentation extends React.Component {
           bgColor={this.state.color}
           textColor="primary"
         >
-          <Heading size={5} caps lineHeight={1} textColor="secondary">
-            state
-          </Heading>
+          <Heading {...headingProps}>state</Heading>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/state.example")}
           />
+          <br />
           <div>
             <button
               onClick={() => {
@@ -202,23 +218,21 @@ export default class Presentation extends React.Component {
             </button>
           </div>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={5} caps lineHeight={1} textColor="secondary">
-            Composition
-          </Heading>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Composition</Heading>
           <CodePane
             lang="javascript"
             source={require("raw-loader!../assets/composition.example")}
           />
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={5} caps lineHeight={1} textColor="secondary">
-            Lifecycle
-          </Heading>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Lifecycle</Heading>
           <List>
             <ListItem>constructor()</ListItem>
             <ListItem>componentWillMount()</ListItem>
             <ListItem>render()</ListItem>
+          </List>
+          <List>
             <ListItem>componentDidMount()</ListItem>
             <ListItem>componentWillReceiveProps()</ListItem>
             <ListItem>shouldComponentUpdate()</ListItem>
@@ -228,47 +242,46 @@ export default class Presentation extends React.Component {
             <ListItem>componentWillUnmount()</ListItem>
           </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
+        <Slide {...slideProps}>
           <img src={images.webpack} />
           <Text textColor="secondary">debugging webpack</Text>
           <Appear>
             <Text textColor="secondary">create-react-app</Text>
           </Appear>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">Tests</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Tests</Heading>
           <img src={images.tests} />
-          <Text textColor="secondary">Jest</Text>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">Airbnb</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Jest</Heading>
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Airbnb</Heading>
           <Text textColor="secondary">Mocha 45mn =&gt; Jest 14.5mn</Text>
-          <Text textColor="secondary">
+          <Link>
             https://medium.com/airbnb-engineering/unlocking-test-performance-migrating-from-mocha-to-jest-2796c508ec50
-          </Text>
+          </Link>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={5} caps lineHeight={1} textColor="secondary">
-            Architecture React
-          </Heading>
-          <Text textColor="secondary">Architecture des données</Text>
-          <Text textColor="secondary">Architecture d'un projet</Text>
-          <Text textColor="secondary">Tips</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Architecture React</Heading>
+          <List>
+            <ListItem>Architecture des données</ListItem>
+            <ListItem textColor="secondary">Architecture d'un projet</ListItem>
+            <ListItem textColor="secondary">Tips</ListItem>
+          </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={5} caps lineHeight={1} textColor="secondary">
-            Flux
-          </Heading>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Flux</Heading>
           <img
             src="http://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png"
             width="800"
             height="242"
           />
+          <Link>https://facebook.github.io/flux/docs/videos.html</Link>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={5} caps lineHeight={1} textColor="secondary">
-            Redux
-          </Heading>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Redux</Heading>
           <img
             src="https://raw.githubusercontent.com/reactjs/redux/master/logo/logo.png"
             width="363"
@@ -278,18 +291,14 @@ export default class Presentation extends React.Component {
             This architecture might seem like an overkill for a counter app, but the beauty of this pattern is how well it scales to large and complex apps
           </Text>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={5} caps lineHeight={1} textColor="secondary">
-            Architecture d'un projet
-          </Heading>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Architecture d'un projet</Heading>
           <Text textColor="secondary">
             Organisation des dossiers / modules / services / utils
           </Text>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={5} caps lineHeight={1} textColor="secondary">
-            Tips
-          </Heading>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Tips</Heading>
           <Text textColor="secondary">Tout est composant</Text>
           <Text textColor="secondary">
             Functionnal Component / PureComponent
@@ -299,86 +308,91 @@ export default class Presentation extends React.Component {
           <Text textColor="secondary">Redux selectors</Text>
           <Text textColor="secondary">prettier / eslint</Text>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={5} caps lineHeight={1} textColor="secondary">
-            React Universel / Universal React
-          </Heading>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>React SSR</Heading>
           <Text textColor="secondary">SEO / Rapidité</Text>
           <Text textColor="secondary">Netflix / Paypal / M6</Text>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">Next.js</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Next.js</Heading>
           <img src={images.hnpwa} width="700" height="392" />
-          <Text textColor="secondary">
+          <Link>
             https://github.com/codebusking/next-hnpwa-guide-kit
-          </Text>
+          </Link>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={5} caps lineHeight={1} textColor="secondary">
-            Le turfu
-          </Heading>
-          <img src={images.xbox} width="400" height="300" />
+        <Slide {...slideProps}>
+          <img src={images.xbox} width="515" height="427" />
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={5} caps lineHeight={1} textColor="secondary">
-            Le turfu
-          </Heading>
-          <Text textColor="secondary">
-            React a inspiré des développeurs qui ont créé leurs propres librairie (Preact et Vue.js).
-            Ces challengers ont montré que React n’était pas forcément la solution la plus rapide sur le marché. Cette concurrence a surement fait réagir facebook et ses développeurs pour qu’ils essayent de faire encore mieux.
-            {" "}
-            Deux ans après le début de leurs recherches (https://github.com/acdlite/react-fiber-architecture), ils ont réécrit complètement React et ont appelé cette nouvelle version React Fiber.
-            React Fiber est presque prêt http://isfiberreadyyet.com/ la version 0.16 devrait sortir cet été et la migration pourra se faire en tout transparence cf https://twitter.com/reactjs/status/854989063027392512
-            En effet, facebook garantit une compatibilité de sa librairie avec les versions précédentes.
-          </Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>à surveiller</Heading>
+          <List>
+            <ListItem>Preact / Vue.js</ListItem>
+            <ListItem>Mobx</ListItem>
+            <ListItem>React Fiber : 2 ans de réécriture</ListItem>
+          </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={5} caps lineHeight={1} textColor="secondary">
-            React Native
-          </Heading>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Le turfu</Heading>
+          <img src={images.fiber} width="380" height="430" />
+          <List>
+            <ListItem>http://isfiberreadyyet.com/</ListItem>
+            <ListItem>
+              Fb garantit une compatibilité de sa librairie avec les versions précédentes.
+            </ListItem>
+          </List>
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>React Native</Heading>
           <Appear>
             <Text textColor="secondary">Facebook - 2015</Text>
           </Appear>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
+        <Slide {...slideProps}>
           <img className="techno" src={images.cordova} />
           <img className="techno" src={images.ionic} />
           <Text textColor="secondary">Applications hybrides</Text>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">Pourquoi pas du natif ?</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Pourquoi pas du natif ?</Heading>
           <List>
             <ListItem>Cout de développement</ListItem>
             <ListItem>Temps de développement</ListItem>
             <ListItem>Ressources rares et chères</ListItem>
           </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">Dans le ventre de RN</Text>
-          <Text textColor="secondary">
-            comment ça marche / pourquoi ça existe que maintenant
-          </Text>
-          <Text textColor="secondary">
-            La différence majeure avec les applications hybrides est que ce nouveau concept ne s’appuie plus sur les WebView. Les composants écrits en JavaScript sont transformés en composants natifs.
-            Les deux architectures des frameworks se basent sur un bridge asynchrone entre le code JavaScript et les couches UI natives pour piloter les composants.
-            React Native (RN) utilise JavaScriptCore (2013) sur iOS et sur Android.
-            Fini donc, le HTML, seuls quelques composants sont disponibles. Par exemple, les balises div et p sont remplacées par View et Text pour RN
-          </Text>
-          <Text textColor="secondary">
-            React Native on Android does include a copy of JavaScriptCore. This helps reduce the differences between iOS and Android and lets us ensure that all Android users get to use a modern version of JSC.
-          </Text>
-          <Text textColor="secondary">
-            https://blog.expo.io/modernizing-js-bundles-for-react-native-with-babili-late-2016-f625e754ab94
-          </Text>
-          <Text textColor="secondary">
-            https://www.facebook.com/groups/react.native.community/permalink/1008204872648424/
-          </Text>
-          <Text textColor="secondary">
-            yoga / flex
-          </Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Dans le ventre de RN</Heading>
+          <List>
+            <ListItem>Plus de WebView</ListItem>
+            <ListItem>JavaScriptCore - 2013</ListItem>
+            <ListItem>
+              Le code JS pilote couches UI natives via bridge asynchrone
+            </ListItem>
+            <ListItem>
+              Composants React =&gt; composants natifs
+            </ListItem>
+            <ListItem>Pas de DOM = pas de html</ListItem>
+          </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">Concurrents</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Dans le ventre de RN</Heading>
+          <img src={images.javascriptcore} />
+          <Link>
+            https://blog.expo.io/modernizing-js-bundles-for-react-native-with-babili-late-2016-f625e754ab94
+          </Link>
+          <br />
+          <Link>
+            https://www.facebook.com/groups/react.native.community/permalink/1008204872648424/
+          </Link>
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Dans le ventre de RN</Heading>
+          <List>
+            <ListItem> yoga / flex</ListItem>
+          </List>
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Concurrents</Heading>
           <List>
             <ListItem>
               Telerik / Google (Angular JS)
@@ -397,8 +411,8 @@ export default class Presentation extends React.Component {
             </ListItem>
           </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">Pros</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Pros</Heading>
           <List>
             <ListItem>
               Si vous maîtrisez déjà React, vous savez coder en React Native
@@ -411,8 +425,8 @@ export default class Presentation extends React.Component {
             <ListItem>Performances</ListItem>
           </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">Const</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Const</Heading>
           <List>
             <ListItem>
               Encore pas mal de bug (layout, overflow, zIndex) mais il y a une nouvelle release chaque mois, on guette à chaque fois la release note avec attention
@@ -425,14 +439,14 @@ export default class Presentation extends React.Component {
             </ListItem>
           </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">Tips</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Tips</Heading>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">Démo</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Démo</Heading>
         </Slide>
-        <Slide transition={["fade"]} bgColor="primary">
-          <Text textColor="secondary">Merci</Text>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Merci</Heading>
           <img src={images.eric} />
         </Slide>
       </Deck>
