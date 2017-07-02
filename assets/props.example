@@ -1,24 +1,13 @@
 /**
 * Définition
 */
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-
-export default class NomDeMonComposant extends Component {
-  propTypes = {
-    name: PropTypes.string.isRequired
-  };
-
-  render() {
-    return (
-      <div className="container">
-        <h1>
-          Bonjour {this.props.name} !
-        </h1>
-      </div>
-    );
-  }
-}
+const NomDeMonComposant = (props) => (
+  <div className="container">
+    <h1>
+      Bonjour {props.name} !
+    </h1>
+  </div>
+);
 
 /**
 * Utilisation

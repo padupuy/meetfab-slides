@@ -1,0 +1,7 @@
+const Article = (props) => (
+  <View style={styles.container}>
+    <Text>{props.title}</Text>
+    <Image source={{uri: props.image} />
+    <Text>{this.props.content}</Text>
+  </View>
+);

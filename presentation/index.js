@@ -53,7 +53,9 @@ const images = {
   flux: require("../assets/flux.png"),
   redux: require("../assets/redux.png"),
   reduxStructure: require("../assets/redux-structure.jpg"),
-  snap: require("../assets/snap.png")
+  snap: require("../assets/snap.png"),
+  reactToRN: require("../assets/react-to-rn.jpg"),
+  bridge: require("../assets/bridge.jpg")
 };
 
 preloader(images);
@@ -66,7 +68,7 @@ const theme = createTheme(
     tertiary: "white"
   },
   {
-    primary: "Montserrat",
+    primary: "Helvetica neue",
     secondary: "Helvetica"
   }
 );
@@ -80,7 +82,8 @@ const slideProps = {
 const headingProps = {
   size: 5,
   caps: true,
-  textColor: "secondary"
+  textColor: "secondary",
+  fontWeight: "light"
 };
 
 export default class Presentation extends React.Component {
@@ -99,8 +102,7 @@ export default class Presentation extends React.Component {
           <img src={images.logoAdfab} />
           <Heading {...headingProps}>
             Bienvenue
-          </Heading>
-          <Heading {...headingProps}>
+            <br />
             chez Adfab
           </Heading>
         </Slide>
@@ -156,7 +158,8 @@ export default class Presentation extends React.Component {
             https://medium.com/this-dot-labs/building-modern-web-applications-in-2017-791d2ef2e341
           </Link>
         </Slide>
-        <Slide {...slideProps}>
+        {/*
+          <Slide {...slideProps}>
           <Heading {...headingProps}>Virtual DOM</Heading>
           <img src={images.vdomInception} />
           <br />
@@ -164,6 +167,7 @@ export default class Presentation extends React.Component {
             http://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/
           </Link>
         </Slide>
+        */}
         <Slide {...slideProps}>
           <Heading {...headingProps}>Virtual DOM</Heading>
           <img src={images.vdom} width="697" height="392" />
@@ -231,6 +235,7 @@ export default class Presentation extends React.Component {
             source={require("raw-loader!../assets/composition.example")}
           />
         </Slide>
+        {/*
         <Slide {...slideProps}>
           <Heading {...headingProps}>Lifecycle</Heading>
           <Text textColor="secondary">Creation</Text>
@@ -250,6 +255,7 @@ export default class Presentation extends React.Component {
             <ListItem>componentWillUnmount()</ListItem>
           </List>
         </Slide>
+        */}
         <Slide {...slideProps}>
           <img src={images.webpack} />
           <Text textColor="secondary">debugging webpack</Text>
@@ -258,21 +264,25 @@ export default class Presentation extends React.Component {
             <Text textColor="secondary">create-react-app</Text>
           </Appear>
         </Slide>
+        {/*
         <Slide {...slideProps}>
           <Heading {...headingProps}>Tests</Heading>
           <br />
           <img src={images.tests} />
         </Slide>
+        */}
         <Slide {...slideProps}>
           <Heading {...headingProps}>Jest</Heading>
-          <img src={images.snap} width="765" height="484" />
+          <img src={images.snap} width="700" height="410" />
           <Link>
             https://facebook.github.io/jest/docs/snapshot-testing.html
           </Link>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Airbnb</Heading>
-          <Text textColor="secondary">Mocha 45mn =&gt; Jest 14.5mn</Text>
+          <Text textColor="secondary" style={{ marginBottom: 20 }}>
+            Mocha 45mn =&gt; Jest 14.5mn
+          </Text>
           <Link>
             https://medium.com/airbnb-engineering/unlocking-test-performance-migrating-from-mocha-to-jest-2796c508ec50
           </Link>
@@ -292,18 +302,10 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Redux</Heading>
-          <img src={images.redux} width="363" height="319" />
+          <img src={images.redux} width="200" height="181" />
           <Text textColor="secondary">
             Dan Abramov - 2015
           </Text>
-          <List>
-            <ListItem>
-              Container d'état - inspiré de ELM
-            </ListItem>
-            <ListItem>
-              Un store unique / plusieurs reducers
-            </ListItem>
-          </List>
         </Slide>
         <Slide {...slideProps}>
           <img src={images.reduxStructure} />
@@ -316,14 +318,13 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Tips</Heading>
-          <Text textColor="secondary">Tout est composant</Text>
-          <Text textColor="secondary">
-            Functionnal Component / PureComponent
-          </Text>
-          <Text textColor="secondary">shouldComponentUpdate</Text>
-          <Text textColor="secondary">Redux saga / observable</Text>
-          <Text textColor="secondary">Redux selectors</Text>
-          <Text textColor="secondary">prettier / eslint</Text>
+          <List>
+            <ListItem>Tout est composant</ListItem>
+            <ListItem>Functionnal Component / PureComponent</ListItem>
+            <ListItem>shouldComponentUpdate</ListItem>
+            <ListItem>Redux saga / observable</ListItem>
+            <ListItem>Reselect</ListItem>
+          </List>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>React SSR</Heading>
@@ -349,13 +350,12 @@ export default class Presentation extends React.Component {
         <Slide {...slideProps}>
           <Heading {...headingProps}>à surveiller</Heading>
           <List>
-            <ListItem>Preact / Vue.js</ListItem>
+            <ListItem>Vue.js</ListItem>
+            <ListItem>Preact</ListItem>
             <ListItem>Mobx</ListItem>
-            <ListItem>React Fiber : 2 ans de réécriture</ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
-          <Heading {...headingProps}>Le turfu</Heading>
           <img src={images.fiber} width="380" height="430" />
           <List>
             <ListItem>http://isfiberreadyyet.com/</ListItem>
@@ -384,17 +384,20 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         <Slide {...slideProps}>
+          <img src={images.reactToRN} />
+        </Slide>
+        <Slide {...slideProps}>
+          <img src={images.bridge} />
+          <Link>https://speakerdeck.com/ncuillery/how-to-react-native</Link>
+        </Slide>
+        <Slide {...slideProps}>
           <Heading {...headingProps}>Dans le ventre de RN</Heading>
           <List>
             <ListItem>Plus de WebView</ListItem>
             <ListItem>JavaScriptCore - 2013</ListItem>
             <ListItem>
-              Le code JS pilote couches UI natives via bridge asynchrone
-            </ListItem>
-            <ListItem>
               Composants React =&gt; composants natifs
             </ListItem>
-            <ListItem>Pas de DOM = pas de html</ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
@@ -405,13 +408,16 @@ export default class Presentation extends React.Component {
           </Link>
           <br />
           <Link>
-            https://twitter.com/ReactEurope/status/876546361583448066
+            video : https://twitter.com/ReactEurope/status/876546361583448066
           </Link>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Dans le ventre de RN</Heading>
           <List>
-            <ListItem> yoga / flex</ListItem>
+            <ListItem>yoga : cross-platform layout engine</ListItem>
+            <ListItem>
+              fresco : Android library for managing images and the memory they use
+            </ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
@@ -452,14 +458,11 @@ export default class Presentation extends React.Component {
             </Appear>
             <Appear>
               <ListItem>
-                On peut debugger son code avec Chrome DevTools
+                On peut debugger son code JS avec Chrome DevTools
               </ListItem>
             </Appear>
             <Appear>
               <ListItem>UX</ListItem>
-            </Appear>
-            <Appear>
-              <ListItem>Performances</ListItem>
             </Appear>
           </List>
         </Slide>
@@ -479,6 +482,12 @@ export default class Presentation extends React.Component {
                 Mise à jour délicate mais les devs ont toujours de supers idées https://github.com/ncuillery/rn-diff
               </ListItem>
             </Appear>
+          </List>
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>DIY Native Modules</Heading>
+          <List>
+            <ListItem>Créer ses propores bridges</ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
