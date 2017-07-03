@@ -421,28 +421,9 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         <Slide {...slideProps}>
-          <Heading {...headingProps}>Concurrents</Heading>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            <img src={images.nativescript} />
-            <img src={images.xamarin} height="136" />
-            <img src={images.weex} />
-          </div>
+          <Heading {...headingProps}>DIY Native Modules</Heading>
           <List>
-            <ListItem>
-              NativeScript : Telerik / Google - Angular JS
-            </ListItem>
-            <ListItem>
-              Xamarin : Microsoft - c#
-            </ListItem>
-            <ListItem>
-              Weex : Alibaba / Taobao - Vue JS
-            </ListItem>
+            <ListItem>Créer ses propores bridges</ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
@@ -485,9 +466,28 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         <Slide {...slideProps}>
-          <Heading {...headingProps}>DIY Native Modules</Heading>
+          <Heading {...headingProps}>Concurrents</Heading>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <img src={images.nativescript} />
+            <img src={images.xamarin} height="136" />
+            <img src={images.weex} />
+          </div>
           <List>
-            <ListItem>Créer ses propores bridges</ListItem>
+            <ListItem>
+              NativeScript : Telerik / Google - Angular JS
+            </ListItem>
+            <ListItem>
+              Xamarin : Microsoft - c#
+            </ListItem>
+            <ListItem>
+              Weex : Alibaba / Taobao - Vue JS
+            </ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
