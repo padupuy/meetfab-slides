@@ -55,7 +55,8 @@ const images = {
   reduxStructure: require("../assets/redux-structure.jpg"),
   snap: require("../assets/snap.png"),
   reactToRN: require("../assets/react-to-rn.jpg"),
-  bridge: require("../assets/bridge.jpg")
+  bridge: require("../assets/bridge.jpg"),
+  coeuraveclesmains: require("../assets/coeuraveclesmains.gif")
 };
 
 preloader(images);
@@ -154,7 +155,7 @@ export default class Presentation extends React.Component {
         <Slide {...slideProps}>
           <img width="610" height="458" src={images.technos} />
           <br />
-          <Link>
+          <Link href="https://medium.com/this-dot-labs/building-modern-web-applications-in-2017-791d2ef2e341">
             https://medium.com/this-dot-labs/building-modern-web-applications-in-2017-791d2ef2e341
           </Link>
         </Slide>
@@ -170,9 +171,11 @@ export default class Presentation extends React.Component {
         */}
         <Slide {...slideProps}>
           <Heading {...headingProps}>Virtual DOM</Heading>
-          <img src={images.vdom} width="697" height="392" />
-          <br />
-          <Link>
+          <img src={images.vdom} width="533" height="300" />
+          <Text textColor="secondary">
+            Determines the minimal set of DOM operations necessary via a diff algorithm
+          </Text>
+          <Link href="https://www.infoq.com/presentations/react-reconciliation">
             https://www.infoq.com/presentations/react-reconciliation
           </Link>
         </Slide>
@@ -274,7 +277,7 @@ export default class Presentation extends React.Component {
         <Slide {...slideProps}>
           <Heading {...headingProps}>Jest</Heading>
           <img src={images.snap} width="700" height="410" />
-          <Link>
+          <Link href="https://facebook.github.io/jest/docs/snapshot-testing.html">
             https://facebook.github.io/jest/docs/snapshot-testing.html
           </Link>
         </Slide>
@@ -283,7 +286,7 @@ export default class Presentation extends React.Component {
           <Text textColor="secondary" style={{ marginBottom: 20 }}>
             Mocha 45mn =&gt; Jest 14.5mn
           </Text>
-          <Link>
+          <Link href="https://medium.com/airbnb-engineering/unlocking-test-performance-migrating-from-mocha-to-jest-2796c508ec50">
             https://medium.com/airbnb-engineering/unlocking-test-performance-migrating-from-mocha-to-jest-2796c508ec50
           </Link>
         </Slide>
@@ -298,7 +301,9 @@ export default class Presentation extends React.Component {
         <Slide {...slideProps}>
           <Heading {...headingProps}>Flux</Heading>
           <img src={images.flux} width="800" height="242" />
-          <Link>https://facebook.github.io/flux/docs/videos.html</Link>
+          <Link href="https://facebook.github.io/flux/docs/videos.html">
+            https://facebook.github.io/flux/docs/videos.html
+          </Link>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Redux</Heading>
@@ -309,6 +314,9 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide {...slideProps}>
           <img src={images.reduxStructure} />
+          <Link href="https://syon.github.io/wiki/react/">
+            https://syon.github.io/wiki/react/
+          </Link>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Architecture d'un projet</Heading>
@@ -333,14 +341,14 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide {...slideProps}>
           <img src={images.ssr} />
-          <Link>
+          <Link href="https://goralewicz.com/blog/javascript-seo-experiment/">
             https://goralewicz.com/blog/javascript-seo-experiment/
           </Link>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Next.js</Heading>
           <img src={images.hnpwa} width="700" height="392" />
-          <Link>
+          <Link href="https://github.com/codebusking/next-hnpwa-guide-kit">
             https://github.com/codebusking/next-hnpwa-guide-kit
           </Link>
         </Slide>
@@ -388,9 +396,12 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide {...slideProps}>
           <img src={images.bridge} />
-          <Link>https://speakerdeck.com/ncuillery/how-to-react-native</Link>
+          <Link href="https://speakerdeck.com/ncuillery/how-to-react-native">
+            https://speakerdeck.com/ncuillery/how-to-react-native
+          </Link>
         </Slide>
-        <Slide {...slideProps}>
+        {/*
+          <Slide {...slideProps}>
           <Heading {...headingProps}>Dans le ventre de RN</Heading>
           <List>
             <ListItem>Plus de WebView</ListItem>
@@ -400,30 +411,55 @@ export default class Presentation extends React.Component {
             </ListItem>
           </List>
         </Slide>
+        */}
         <Slide {...slideProps}>
-          <Heading {...headingProps}>Dans le ventre de RN</Heading>
+          <Heading {...headingProps}>JavaScriptCore - Android</Heading>
           <img src={images.javascriptcore} />
-          <Link>
+          <Link href="https://blog.expo.io/modernizing-js-bundles-for-react-native-with-babili-late-2016-f625e754ab94">
             https://blog.expo.io/modernizing-js-bundles-for-react-native-with-babili-late-2016-f625e754ab94
-          </Link>
-          <br />
-          <Link>
-            video : https://twitter.com/ReactEurope/status/876546361583448066
           </Link>
         </Slide>
         <Slide {...slideProps}>
-          <Heading {...headingProps}>Dans le ventre de RN</Heading>
+          <Heading {...headingProps}>Bridge</Heading>
+          <img src={images.coeuraveclesmains} />
           <List>
-            <ListItem>yoga : cross-platform layout engine</ListItem>
+            <ListItem>Bridge surchargé = ralentissement de l'App</ListItem>
+            <ListItem>Bridge en bonne santé = app en bonne santé</ListItem>
             <ListItem>
-              fresco : Android library for managing images and the memory they use
+              Offloading animations =&gt; useNativeDriver: true
+            </ListItem>
+            <ListItem>InteractionManager.runAfterInteractions()</ListItem>
+          </List>
+        </Slide>
+        <Slide {...slideProps}>
+          <Heading {...headingProps}>Made in Facebook</Heading>
+          <List>
+            <ListItem>
+              Yoga : cross-platform layout engine = flex everywhere
+            </ListItem>
+            <ListItem>
+              Fresco : Android library for managing images and the memory they use
             </ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
-          <Heading {...headingProps}>DIY Native Modules</Heading>
+          <Heading {...headingProps}>Native Modules</Heading>
           <List>
-            <ListItem>Créer ses propores bridges</ListItem>
+            <ListItem>
+              Alert, AsyncStorage : API standardisée
+            </ListItem>
+            <ListItem>
+              SegmentedControlIOS, ViewPagerAndroid : Mono plateforme{" "}
+            </ListItem>
+            <ListItem>
+              API identique entre les modules fournis par FB et les modules tiers
+            </ListItem>
+            <ListItem>
+              DIY : Compétences natives requises
+            </ListItem>
+            <ListItem>
+              react-native link
+            </ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
@@ -439,11 +475,21 @@ export default class Presentation extends React.Component {
             </Appear>
             <Appear>
               <ListItem>
-                On peut debugger son code JS avec Chrome DevTools
+                Debug son code JS avec Chrome DevTools
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                Hot / Live reload
               </ListItem>
             </Appear>
             <Appear>
               <ListItem>UX</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                Communauté / conférence : http://bit.ly/2t8JHqm
+              </ListItem>
             </Appear>
           </List>
         </Slide>

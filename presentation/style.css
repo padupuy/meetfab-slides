@@ -2,6 +2,12 @@ a {
   font-size: 0.75em;
   text-decoration: underline !important;
 }
+a,
+a:visited,
+a:hover,
+a:active {
+  color: yellow !important;
+}
 
 img {
   margin: 20px 0;
@@ -34,7 +40,8 @@ button {
   padding: 20px;
 }
 
-.spectacle-deck > div:nth-child(3){
+.spectacle-deck > div:nth-child(3),
+.spectacle-deck > div:nth-child(2){
   bottom: 30px !important;
 }
 
