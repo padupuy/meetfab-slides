@@ -164,7 +164,7 @@ export default class Presentation extends React.Component {
       */}
         <Slide {...slideProps}>
           <Text textColor="secondary">React c'est le V dans MVC</Text>
-          <Text textColor="secondary">Two way data binding, on oublie</Text>
+          <Text textColor="secondary">Dirty checking, on oublie</Text>
           <Text textColor="secondary">Shadow DOM pas assez performant</Text>
         </Slide>
         <Slide {...slideProps}>
