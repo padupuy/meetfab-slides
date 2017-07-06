@@ -4,11 +4,15 @@ export default class NomDeMonComposant extends Component {
   state = {
     color: "black"
   };
+
+  toggleBackgroundColor = () => {
+    this.setState({ color: this.state.color === "yellow" ? "black" : "yellow" }) 
+  }
   
   render() {
     return (
       <div className="container" style={{ backgroundColor: this.state.color }}>
-        <button onClick={() => this.setState({ color: this.state.color === "yellow" ? "black" : "yellow" }) }>
+        <button onClick={this.toggleBackgroundColor}>
           Changer la couleur d'arrière plan
         </button>
       </div>

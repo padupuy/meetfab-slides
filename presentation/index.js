@@ -161,7 +161,12 @@ export default class Presentation extends React.Component {
             http://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/
           </Link>
         </Slide>
-        */}
+      */}
+        <Slide {...slideProps}>
+          <Text textColor="secondary">React c'est le V dans MVC</Text>
+          <Text textColor="secondary">Two way data binding, on oublie</Text>
+          <Text textColor="secondary">Shadow DOM pas assez performant</Text>
+        </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Virtual DOM</Heading>
           <img src={images.vdom} width="533" height="300" />
@@ -321,14 +326,14 @@ export default class Presentation extends React.Component {
             }}
           >
             <img src={images.codeStyleClassic} width="360" height="300" />
-            <img src={images.codeStyleClassic} width="360" height="300" />
-            <img src={images.codeStyleClassic} width="360" height="300" />
           </div>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Tips</Heading>
           <List>
-            <ListItem>Tout est composant</ListItem>
+            <ListItem>
+              Tout est composant = factorisation / réutilisabilité
+            </ListItem>
             <ListItem>Functionnal Component / PureComponent</ListItem>
             <ListItem>shouldComponentUpdate</ListItem>
             <ListItem>Redux saga / observable</ListItem>
@@ -369,9 +374,10 @@ export default class Presentation extends React.Component {
           <List>
             <ListItem>http://isfiberreadyyet.com/</ListItem>
             <ListItem>
-              Fb garantit une compatibilité de sa librairie avec les versions
+              Compatibilité garantie de sa librairie avec les versions
               précédentes.
             </ListItem>
+            <ListItem>Utilisé en prod par facebook</ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
@@ -391,6 +397,7 @@ export default class Presentation extends React.Component {
             <ListItem>Cout de développement</ListItem>
             <ListItem>Temps de développement</ListItem>
             <ListItem>Ressources rares et chères</ListItem>
+            <ListItem>Dette technique plus importante</ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
@@ -434,7 +441,7 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         <Slide {...slideProps}>
-          <Heading {...headingProps}>Made in Facebook</Heading>
+          <Heading {...headingProps}>Made by Facebook</Heading>
           <List>
             <ListItem>
               Yoga : cross-platform layout engine = flex everywhere
@@ -457,7 +464,7 @@ export default class Presentation extends React.Component {
               tiers
             </ListItem>
             <ListItem>DIY : Compétences natives requises</ListItem>
-            <ListItem>react-native link</ListItem>
+            <ListItem>react-native link (mais attention)</ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
@@ -475,10 +482,13 @@ export default class Presentation extends React.Component {
               <ListItem>Debug son code JS avec Chrome DevTools</ListItem>
             </Appear>
             <Appear>
-              <ListItem>Hot / Live reload</ListItem>
+              <ListItem>Hot / Live reload : pas de compilation !</ListItem>
             </Appear>
             <Appear>
               <ListItem>UX</ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>Temps de développement court</ListItem>
             </Appear>
             <Appear>
               <ListItem>
