@@ -1,5 +1,5 @@
 // Import React
-import React from "react";
+import React from 'react';
 
 // Import Spectacle Core tags
 import {
@@ -12,90 +12,91 @@ import {
   Appear,
   List,
   ListItem
-} from "spectacle";
+} from 'spectacle';
 
-import CodeSlide from "spectacle-code-slide";
+import CodeSlide from 'spectacle-code-slide';
 
 // Import image preloader util
-import preloader from "spectacle/lib/utils/preloader";
+import preloader from 'spectacle/lib/utils/preloader';
 
 // Import theme
-import createTheme from "spectacle/lib/themes/default";
+import createTheme from 'spectacle/lib/themes/default';
 
 // Require CSS
-require("normalize.css");
-require("spectacle/lib/themes/default/index.css");
-require("./style.css");
+require('normalize.css');
+require('spectacle/lib/themes/default/index.css');
+require('./style.css');
 
 const images = {
-  logoAdfab: require("../assets/logo_adfab.png"),
-  logo: require("../assets/logo.svg"),
-  photo: require("../assets/now-coworking-crop.jpg"),
-  angular: require("../assets/angular.png"),
-  backbone: require("../assets/backbone.png"),
-  ember: require("../assets/ember.png"),
-  technos: require("../assets/technos.png"),
-  vdom: require("../assets/vdom.png"),
-  vdomInception: require("../assets/vdom_inception.jpg"),
-  webpack: require("../assets/webpack.gif"),
-  hnpwa: require("../assets/hnpwa.png"),
-  xbox: require("../assets/xbox.png"),
-  tests: require("../assets/tests.jpg"),
-  cordova: require("../assets/cordova.png"),
-  ionic: require("../assets/ionic.png"),
-  xamarin: require("../assets/xamarin.svg"),
-  weex: require("../assets/weex.svg"),
-  nativescript: require("../assets/nativescript.png"),
-  eric: require("../assets/eric.gif"),
-  fiber: require("../assets/fiber.png"),
-  javascriptcore: require("../assets/javascriptcore.png"),
-  ssr: require("../assets/ssr.png"),
-  flux: require("../assets/flux.png"),
-  redux: require("../assets/redux.png"),
-  reduxStructure: require("../assets/redux-structure.jpg"),
-  snap: require("../assets/snap.png"),
-  reactToRN: require("../assets/react-to-rn.jpg"),
-  bridge: require("../assets/bridge.jpg"),
-  coeuraveclesmains: require("../assets/coeuraveclesmains.gif")
+  logoAdfab: require('../assets/logo_adfab.png'),
+  logo: require('../assets/logo.svg'),
+  photo: require('../assets/now-coworking-crop.jpg'),
+  angular: require('../assets/angular.png'),
+  backbone: require('../assets/backbone.png'),
+  ember: require('../assets/ember.png'),
+  technos: require('../assets/technos.png'),
+  vdom: require('../assets/vdom.png'),
+  vdomInception: require('../assets/vdom_inception.jpg'),
+  webpack: require('../assets/webpack.gif'),
+  hnpwa: require('../assets/hnpwa.png'),
+  xbox: require('../assets/xbox.png'),
+  tests: require('../assets/tests.jpg'),
+  cordova: require('../assets/cordova.png'),
+  ionic: require('../assets/ionic.png'),
+  xamarin: require('../assets/xamarin.svg'),
+  weex: require('../assets/weex.svg'),
+  nativescript: require('../assets/nativescript.png'),
+  eric: require('../assets/eric.gif'),
+  fiber: require('../assets/fiber.png'),
+  javascriptcore: require('../assets/javascriptcore.png'),
+  ssr: require('../assets/ssr.png'),
+  flux: require('../assets/flux.png'),
+  redux: require('../assets/redux.png'),
+  reduxStructure: require('../assets/redux-structure.jpg'),
+  snap: require('../assets/snap.png'),
+  reactToRN: require('../assets/react-to-rn.jpg'),
+  bridge: require('../assets/bridge.jpg'),
+  coeuraveclesmains: require('../assets/coeuraveclesmains.gif'),
+  codeStyleClassic: require('../assets/codeStyleClassic.jpg')
 };
 
 preloader(images);
 
 const theme = createTheme(
   {
-    primary: "black",
-    secondary: "yellow",
+    primary: 'black',
+    secondary: 'yellow',
     // secondary: "white",
-    tertiary: "white"
+    tertiary: 'white'
   },
   {
-    primary: "Helvetica neue",
-    secondary: "Helvetica"
+    primary: 'Helvetica neue',
+    secondary: 'Helvetica'
   }
 );
 
 const slideProps = {
   padding: 0,
-  transition: ["fade"],
-  bgColor: "primary"
+  transition: ['fade'],
+  bgColor: 'primary'
 };
 
 const headingProps = {
   size: 5,
   caps: true,
-  textColor: "secondary",
-  fontWeight: "light"
+  textColor: 'secondary',
+  fontWeight: 'light'
 };
 
 export default class Presentation extends React.Component {
   state = {
-    color: "black"
+    color: 'black'
   };
 
   render() {
     return (
       <Deck
-        transition={["zoom", "slide"]}
+        transition={['zoom', 'slide']}
         transitionDuration={500}
         theme={theme}
       >
@@ -119,24 +120,16 @@ export default class Presentation extends React.Component {
               <ListItem>React</ListItem>
             </Appear>
             <Appear>
-              <ListItem>
-                Architecture React + tips
-              </ListItem>
+              <ListItem>Architecture React + tips</ListItem>
             </Appear>
             <Appear>
-              <ListItem>
-                React SSR
-              </ListItem>
+              <ListItem>React SSR</ListItem>
             </Appear>
             <Appear>
-              <ListItem>
-                React Native
-              </ListItem>
+              <ListItem>React Native</ListItem>
             </Appear>
             <Appear>
-              <ListItem>
-                Démo
-              </ListItem>
+              <ListItem>Démo</ListItem>
             </Appear>
           </List>
         </Slide>
@@ -173,7 +166,8 @@ export default class Presentation extends React.Component {
           <Heading {...headingProps}>Virtual DOM</Heading>
           <img src={images.vdom} width="533" height="300" />
           <Text textColor="secondary">
-            Determines the minimal set of DOM operations necessary via a diff algorithm
+            Determines the minimal set of DOM operations necessary via a diff
+            algorithm
           </Text>
           <Link href="https://www.infoq.com/presentations/react-reconciliation">
             https://www.infoq.com/presentations/react-reconciliation
@@ -182,22 +176,22 @@ export default class Presentation extends React.Component {
         <Slide {...slideProps}>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/jsx.example")}
+            source={require('raw-loader!../assets/jsx.example')}
           />
         </Slide>
         <CodeSlide
-          transition={["fade"]}
+          transition={['fade']}
           lang="js"
-          code={require("raw-loader!../assets/jsx.example")}
+          code={require('raw-loader!../assets/jsx.example')}
           ranges={[
-            { loc: [3, 4], note: "importer React" },
-            { loc: [5, 6], note: "les composants sont des classes" },
-            { loc: [6, 15], note: "déclarer une fonction render" },
-            { loc: [8, 13], note: "HTML" },
-            { loc: [8, 9], note: "className remplace class" },
+            { loc: [3, 4], note: 'importer React' },
+            { loc: [5, 6], note: 'les composants sont des classes' },
+            { loc: [6, 15], note: 'déclarer une fonction render' },
+            { loc: [8, 13], note: 'HTML' },
+            { loc: [8, 9], note: 'className remplace class' },
             {
               loc: [20, 21],
-              note: "Utilisation comme une balise html classique"
+              note: 'Utilisation comme une balise html classique'
             }
           ]}
         />
@@ -205,25 +199,25 @@ export default class Presentation extends React.Component {
           <Heading {...headingProps}>props</Heading>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/props.example")}
+            source={require('raw-loader!../assets/props.example')}
           />
         </Slide>
         <Slide
-          transition={["fade"]}
+          transition={['fade']}
           bgColor={this.state.color}
           textColor="primary"
         >
           <Heading {...headingProps}>state</Heading>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/state.example")}
+            source={require('raw-loader!../assets/state.example')}
           />
           <br />
           <div>
             <button
               onClick={() => {
                 this.setState({
-                  color: this.state.color === "yellow" ? "black" : "yellow"
+                  color: this.state.color === 'yellow' ? 'black' : 'yellow'
                 });
               }}
             >
@@ -235,7 +229,7 @@ export default class Presentation extends React.Component {
           <Heading {...headingProps}>Composition</Heading>
           <CodePane
             lang="javascript"
-            source={require("raw-loader!../assets/composition.example")}
+            source={require('raw-loader!../assets/composition.example')}
           />
         </Slide>
         {/*
@@ -308,9 +302,7 @@ export default class Presentation extends React.Component {
         <Slide {...slideProps}>
           <Heading {...headingProps}>Redux</Heading>
           <img src={images.redux} width="200" height="181" />
-          <Text textColor="secondary">
-            Dan Abramov - 2015
-          </Text>
+          <Text textColor="secondary">Dan Abramov - 2015</Text>
         </Slide>
         <Slide {...slideProps}>
           <img src={images.reduxStructure} />
@@ -320,9 +312,18 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Architecture d'un projet</Heading>
-          <Text textColor="secondary">
-            Organisation des dossiers / modules / services / utils
-          </Text>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <img src={images.codeStyleClassic} width="360" height="300" />
+            <img src={images.codeStyleClassic} width="360" height="300" />
+            <img src={images.codeStyleClassic} width="360" height="300" />
+          </div>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Tips</Heading>
@@ -368,7 +369,8 @@ export default class Presentation extends React.Component {
           <List>
             <ListItem>http://isfiberreadyyet.com/</ListItem>
             <ListItem>
-              Fb garantit une compatibilité de sa librairie avec les versions précédentes.
+              Fb garantit une compatibilité de sa librairie avec les versions
+              précédentes.
             </ListItem>
           </List>
         </Slide>
@@ -438,28 +440,24 @@ export default class Presentation extends React.Component {
               Yoga : cross-platform layout engine = flex everywhere
             </ListItem>
             <ListItem>
-              Fresco : Android library for managing images and the memory they use
+              Fresco : Android library for managing images and the memory they
+              use
             </ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
           <Heading {...headingProps}>Native Modules</Heading>
           <List>
+            <ListItem>Alert, AsyncStorage : API standardisée</ListItem>
             <ListItem>
-              Alert, AsyncStorage : API standardisée
+              SegmentedControlIOS, ViewPagerAndroid : Mono plateforme{' '}
             </ListItem>
             <ListItem>
-              SegmentedControlIOS, ViewPagerAndroid : Mono plateforme{" "}
+              API identique entre les modules fournis par FB et les modules
+              tiers
             </ListItem>
-            <ListItem>
-              API identique entre les modules fournis par FB et les modules tiers
-            </ListItem>
-            <ListItem>
-              DIY : Compétences natives requises
-            </ListItem>
-            <ListItem>
-              react-native link
-            </ListItem>
+            <ListItem>DIY : Compétences natives requises</ListItem>
+            <ListItem>react-native link</ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
@@ -474,14 +472,10 @@ export default class Presentation extends React.Component {
               </ListItem>
             </Appear>
             <Appear>
-              <ListItem>
-                Debug son code JS avec Chrome DevTools
-              </ListItem>
+              <ListItem>Debug son code JS avec Chrome DevTools</ListItem>
             </Appear>
             <Appear>
-              <ListItem>
-                Hot / Live reload
-              </ListItem>
+              <ListItem>Hot / Live reload</ListItem>
             </Appear>
             <Appear>
               <ListItem>UX</ListItem>
@@ -497,16 +491,20 @@ export default class Presentation extends React.Component {
           <Heading {...headingProps}>Inconvénients</Heading>
           <List>
             <ListItem>
-              Encore pas mal de bug (layout, overflow, zIndex) mais il y a une nouvelle release chaque mois, on guette à chaque fois la release note avec attention
+              Encore pas mal de bug (layout, overflow, zIndex) mais il y a une
+              nouvelle release chaque mois, on guette à chaque fois la release
+              note avec attention
             </ListItem>
             <Appear>
               <ListItem>
-                Gros débat sur la navigation mais des solutions performantes existent
+                Mise à jour délicate mais les devs ont toujours de supers idées
+                https://github.com/ncuillery/rn-diff
               </ListItem>
             </Appear>
             <Appear>
               <ListItem>
-                Mise à jour délicate mais les devs ont toujours de supers idées https://github.com/ncuillery/rn-diff
+                Gros débat sur la navigation mais des solutions performantes
+                existent
               </ListItem>
             </Appear>
           </List>
@@ -515,9 +513,9 @@ export default class Presentation extends React.Component {
           <Heading {...headingProps}>Concurrents</Heading>
           <div
             style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center"
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
             }}
           >
             <img src={images.nativescript} />
@@ -525,15 +523,9 @@ export default class Presentation extends React.Component {
             <img src={images.weex} />
           </div>
           <List>
-            <ListItem>
-              NativeScript : Telerik / Google - Angular JS
-            </ListItem>
-            <ListItem>
-              Xamarin : Microsoft - c#
-            </ListItem>
-            <ListItem>
-              Weex : Alibaba / Taobao - Vue JS
-            </ListItem>
+            <ListItem>NativeScript : Telerik / Google - Angular JS</ListItem>
+            <ListItem>Xamarin : Microsoft - c#</ListItem>
+            <ListItem>Weex : Alibaba / Taobao - Vue JS</ListItem>
           </List>
         </Slide>
         <Slide {...slideProps}>
